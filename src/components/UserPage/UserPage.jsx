@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
-
+import axios from 'axios';
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+
+useEffect (() => {
+  fetchData
+}, [])
+
+
+  function fetchData () {
+  axios.get('/api/wishList')
+  .then ((response) =>{
+let data = response.data
+
+  })
+  .catch ((error) => {
+    console.log('error get in userpage', error)
+  })
+}
+
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
+
+{/* <table>
+  <tr>
+    <th>
+    Name
+    </th>
+  </tr>
+
+<tr>
+  <td>
+{user.id}
+  </td>
+</tr>
+</table> */}
+
+
       <LogOutButton className="btn" />
     </div>
   );
