@@ -6,8 +6,8 @@ const router = express.Router();
  */
   router.get('/', (req, res) => {
       // GET route code here
-   let queryText = 'SELECT * FROM "wishList";'
-   pool.query(queryText)
+   let queryText = 'SELECT * FROM "wishList" WHERE user_id = $1;'
+   pool.query(queryText, [req.user.id])
    .then((result) => {
     console.log(result.rows)
     res.send(result.rows)

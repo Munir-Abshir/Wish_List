@@ -7,15 +7,16 @@ function UserPage() {
   const user = useSelector((store) => store.user);
 
 useEffect (() => {
-  fetchData
+  console.log('in use effect')
+  fetchData()
 }, [])
 
 
   function fetchData () {
   axios.get('/api/wishList')
   .then ((response) =>{
-let data = response.data
-
+  console.log(response.data)
+  
   })
   .catch ((error) => {
     console.log('error get in userpage', error)

@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route Includes
 const userRouter = require('./routes/user.router');
-const wishListRouter = require('./routes/template.router')
+const wishListRouter = require('./routes/wish.list.router')
 
 // Express Middleware
 app.use(express.json());
