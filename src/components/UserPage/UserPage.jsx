@@ -16,6 +16,7 @@ useEffect (() => {
 const [name, setname] = useState('');
 const [price, setprice] = useState('');
 const [description, setdescription] = useState('');
+const [image, setimage] = useState('');
 
 
 
@@ -31,13 +32,15 @@ const [description, setdescription] = useState('');
 }
 
 
-function addData () {
+const addData = () => {
 
   let payload = {
   name: name,
   price: price,
-  description: description
+  description: description,
+  image_url: image
 }
+console.log(payload);
 
 
   axios.post('/api/wishList' , payload)
@@ -63,7 +66,8 @@ function addData () {
 <input type='text' name='name' placeholder='Name' value={name} onChange={ (e) => setname(e.target.value)}></input>
 <input type='text' name='price' placeholder='price' value={price} onChange={ (e) => setprice(e.target.value)}></input>
 <input type='text' name='description' placeholder='description' value={description} onChange={ (e) => setdescription(e.target.value)}></input>
-<button>Add</button>
+<input type='text' name='image_url' placeholder='image url' value={image} onChange={ (e) => setimage(e.target.value)}></input>
+<button type='submit'>ADD</button>
 </form>
       <LogOutButton className="btn" />
     </div>

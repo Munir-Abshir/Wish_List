@@ -9,7 +9,7 @@ const router = express.Router();
    let queryText = 'SELECT * FROM "wishList" WHERE user_id = $1;'
    pool.query(queryText, [req.user.id])
    .then((result) => {
-    console.log(result.rows)
+    // console.log(result.rows)
     res.send(result.rows)
    })
    .catch((error) => {
@@ -21,24 +21,24 @@ const router = express.Router();
 /**
  * POST route template
  */
-router.post('/api/wishList', (req, res) => {
+router.post('/', (req, res) => {
 console.log(req.body)
 const name = req.body.name
 const price = req.body.price
 const description = req.body.description
 const image = req.body.image_url
 
-const queryText = `INSERT INTO "wishList"
+const queryText = `INSERT INTO "wishList WHERE user_id = $1;"
 
             ("name", "price", "description", "image_url")
             VALUES
             ($1,$2,$3,$4)
-            ;`
+            ;`;
 
 
 pool.query(queryText, [name,price,description,image])
 .then(result => {
-  res.sendStatus(2001)
+  res.sendStatus(200);
 })
 .catch(error => {
   res.sendStatus(500);
