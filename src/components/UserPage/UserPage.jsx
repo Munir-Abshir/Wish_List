@@ -35,8 +35,9 @@ const [image, setimage] = useState('');
 const addData = () => {
 
   let payload = {
+  user_id: user.id,
   name: name,
-  price: price,
+  price: Number(price),
   description: description,
   image_url: image
 }

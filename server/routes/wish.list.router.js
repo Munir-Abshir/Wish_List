@@ -23,24 +23,27 @@ const router = express.Router();
  */
 router.post('/', (req, res) => {
 console.log(req.body)
+const user_id = req.body.user_id
 const name = req.body.name
 const price = req.body.price
 const description = req.body.description
 const image = req.body.image_url
 
-const queryText = `INSERT INTO "wishList WHERE user_id = $1;"
+const queryText = `INSERT INTO "wishList"
 
-            ("name", "price", "description", "image_url")
+            ("user_id","name", "price", "description", "image_url")
             VALUES
-            ($1,$2,$3,$4)
+            ($1,$2,$3,$4,$5)
             ;`;
 
 
-pool.query(queryText, [name,price,description,image])
+pool.query(queryText, [user_id,name,price,description,image])
 .then(result => {
+  console.log('succsess???')
   res.sendStatus(200);
 })
 .catch(error => {
+  console.log(error, "error")
   res.sendStatus(500);
 })
 });
