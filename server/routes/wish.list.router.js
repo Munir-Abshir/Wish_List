@@ -48,4 +48,29 @@ pool.query(queryText, [user_id,name,price,description,image])
 })
 });
 
+
+// put ???
+
+
+
+
+router.delete('/:id',(req,res) => {
+  const itemsId = req.params.id
+  const queryText = 'DELETE FROM "wishList" WHERE "id"=$1;';
+
+  pool.query(queryText, [itemsId]) 
+      .then(response => {
+          console.log('id with deletwd ', response);
+          res.sendStatus(200);
+          // console.log()
+      })
+      .catch(error => {
+          console.log("error", error);
+          res.sendStatus(500);
+ 
+      })
+  
+  })
+
+
 module.exports = router;

@@ -10,6 +10,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './UserPage.css';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
@@ -97,8 +99,53 @@ console.log(payload);
   )
 }
 
+
+
+
+
+
+function deleteID({ id }) {
+  axios.delete(`/api/wishList/${id}`)
+  .then(response => {
+    console.log('DELTE call successful!');
+    fetchData();
+  })
+  .catch(error => {
+    console.log('something went wrong with our DELTE call');
+  })
+  }
+
+
+
+//   function GiftIdeas() {
+   
+//     return (
+//       <Link to='/giftideas'>
+//         <button onClick={GiftIdeas()}>Gift Ideas</button>
+//         </Link>
+//     );
+// }
+
+
+
   return (
     <>
+
+<div>
+    <button onClick={() => fetchData()}>Home</button>
+    <button onClick={() => {/* Add links */}}>Wishlist</button>
+    
+    <Link to='/help'>
+        <button>Help</button>
+        </Link>  
+        
+        
+          <Link to='/giftideas'>
+        <button>Gift Ideas</button>
+        </Link>
+</div>
+
+
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
@@ -135,7 +182,9 @@ console.log(payload);
         <p className="fixneeded">{item.price}$</p>
         <CardActions>
       
-          <Button size="small" onClick={() => handelEdits(item)}>Edit</Button>        </CardActions>
+          <Button size="small" onClick={() => handelEdits(item)}>Edit</Button>   
+          <Button size="small" onClick={() => deleteID({ id: item.id })}>Delete</Button>   
+               </CardActions>
       </Card>
       </div>
       ))}

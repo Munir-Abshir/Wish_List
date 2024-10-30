@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import GiftIdea from '../GiftIdea/GiftIdea';
+import Help from '../Help/Help';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,8 @@ function App() {
   }, [dispatch]);
 
   return (
+<>
+    
     <Router>
       <div>
         <Nav />
@@ -110,6 +114,17 @@ function App() {
             }
           </Route>
 
+<Route exact path='/giftideas'>
+< GiftIdea />
+
+</Route>
+<Route exact path='/help'>
+< Help />
+
+</Route>
+
+
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
@@ -118,6 +133,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </>
   );
 }
 
