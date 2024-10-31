@@ -50,6 +50,18 @@ pool.query(queryText, [user_id,name,price,description,image])
 
 
 // put ???
+// router.put('/:id',(req,res) => {
+//   let {id} = req.params;
+//   const queryText = 'UPDATE "wishList" set // WHERE "id" = $1;';
+//   pool.query(queryText, [id])
+//   .then(result => {
+//       res.sendStatus(200);
+//   })
+//   .catch(error => {
+//       res.sendStatus(500);})
+// });
+
+
 
 
 

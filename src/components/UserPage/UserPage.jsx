@@ -133,8 +133,8 @@ function deleteID({ id }) {
 
 <div>
     <button onClick={() => fetchData()}>Home</button>
-    <button onClick={() => {/* Add links */}}>Wishlist</button>
-    
+    <button onClick={() => {/* Add data stuff*/}}>Friends</button>
+
     <Link to='/help'>
         <button>Help</button>
         </Link>  
@@ -202,5 +202,4 @@ function deleteID({ id }) {
   );
 }
 
-// this allows us to use <App /> in index.js
 export default UserPage;
