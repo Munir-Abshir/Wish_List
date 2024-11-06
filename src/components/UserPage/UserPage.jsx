@@ -157,7 +157,7 @@ setimage('https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg')
 
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      {/* <p>Your ID is: {user.id}</p> */}
 
 <form onSubmit={addData}>
 

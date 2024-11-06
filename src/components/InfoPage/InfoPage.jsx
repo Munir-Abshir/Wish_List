@@ -7,27 +7,26 @@ import './InfoPage.css'
 
 function InfoPage() {
   return (
+    <>
     <div className="container">
-      <p>Info Page</p>
 
-      <p>Technologies</p>
+      <h2>Technologies</h2>
+      </div>
+   
 
-  <ul>
-      <li> Node</li>
-      <li> Express</li>
-      <li> React</li>
-      <li>Postgresql </li>
-      <li> Redux</li>
-      <li> Sagas</li>
-      <li> Redux</li>
-      <li> CSS</li>
-      <li> Heroku</li>
-  </ul>
-
-
-
+    <div>
+     
+      <li>Node</li> <br /> 
+        <li>Express</li><br />
+        <li>React</li><br />
+        <li>PostgreSQL</li><br />
+        <li>Redux</li><br />
+        <li>Sagas</li><br />
+        <li>CSS</li><br />
+        <li>Heroku</li><br />
     </div>
+
+    </>
   );
 }
-
 export default InfoPage;
