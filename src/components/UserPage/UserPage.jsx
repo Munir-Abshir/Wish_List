@@ -27,25 +27,32 @@ const [price, setprice] = useState('');
 const [description, setdescription] = useState('');
 const [image, setimage] = useState('');
 const [data,setData] = useState([]);
-
-
+const [editItem, setEditItem] = useState(null);
 
 const handelEdits = (item) => {
+  setname(item.name);
+  setprice(item.price);
+  setdescription(item.description);
+  setimage(item.image_url);
+  setEditItem(item.id);
+}
+
+const submitEdit = () => {
   const payload = {
-    user_id: user.id,
-    name: item.name,
-    price: item.price,
-    description: item.description,
-    image_url: item.image_url
+    name: name,
+    price: price,
+    description: description,
+    image_url: image
   };
 
-  axios.put(`/api/wishList/${item.id}`, payload)
+  axios.put(`/api/wishList/${editItem}`, payload)
     .then(() => {
       fetchData();
       setname('');
       setprice('');
       setdescription('');
       setimage('');
+      setEditItem(null);
     })
     .catch(error => {
       console.log('failed put request', error);
@@ -160,13 +167,13 @@ setimage('https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg')
       <h2>Welcome, {user.username}!</h2>
       {/* <p>Your ID is: {user.id}</p> */}
 
-<form onSubmit={addData}>
+<form onSubmit={editItem ? submitEdit : addData}>
 
 <input type='text' name='name' placeholder='Name' value={name} onChange={ (e) => setname(e.target.value)}></input>
 <input type='text' name='price' placeholder='price' value={price} onChange={ (e) => setprice(e.target.value)}></input>
 <input type='text' name='description' placeholder='description' value={description} onChange={ (e) => setdescription(e.target.value)}></input>
 <input type='text' name='image_url' placeholder='image url' value={image} onChange={ (e) => setimage(e.target.value)}></input>
-<button className='add'type='submit'>➕ ADD</button>
+<button className='add'type='submit'>➕ {editItem ? 'EDIT' : 'ADD'}</button>
 <button className='send' > 🚀 Send Wishlist</button>
 </form>
 

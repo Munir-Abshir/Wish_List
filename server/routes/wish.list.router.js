@@ -51,10 +51,11 @@ pool.query(queryText, [user_id,name,price,description,image])
 
 // put ???
 router.put('/:id',(req,res) => {
-  let {user_id, name, price, description, image_url} = req.body;
-  let {id} = req.params.id;
-  const queryText = 'UPDATE "wishList" SET "user_id"=$1,"name"=$2, "price"=$3, "description"=$4, "image_url"=$5 WHERE "id" = $6;';
-  pool.query(queryText, [user_id, name, price, description, image_url, id])
+  let {name, price, description, image_url} = req.body;
+  let id = req.params.id;
+  let user_id = req.user.id;
+  const queryText = 'UPDATE "wishList" SET "name"=$1, "price"=$2, "description"=$3, "image_url"=$4 WHERE "id" = $5 AND "user_id"=$6;';
+  pool.query(queryText, [name, price, description, image_url, id, user_id])
   .then(result => {
       res.sendStatus(200);
   })
