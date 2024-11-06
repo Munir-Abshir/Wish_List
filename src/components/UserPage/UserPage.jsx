@@ -174,7 +174,7 @@ setimage('https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg')
 <input type='text' name='description' placeholder='description' value={description} onChange={ (e) => setdescription(e.target.value)}></input>
 <input type='text' name='image_url' placeholder='image url' value={image} onChange={ (e) => setimage(e.target.value)}></input>
 <button className='add'type='submit'>➕ {editItem ? 'EDIT' : 'ADD'}</button>
-<button className='send' > 🚀 Send Wishlist</button>
+{!editItem && <button className='send' > 🚀 Send Wishlist</button>}
 </form>
 
 <div className='CardK'>
