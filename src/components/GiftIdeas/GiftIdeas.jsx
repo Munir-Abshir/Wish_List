@@ -28,7 +28,7 @@ function GiftIdeas({items, search}) {
                   {item.title}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  {item.price}
+                  ${item.price}
                 </Typography>
               </CardContent>
             </CardActionArea>

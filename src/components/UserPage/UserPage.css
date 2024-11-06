@@ -1,6 +1,10 @@
 body {
-    background-color: #f0f8ff;
-    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; 
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    margin: 0; 
+    padding: 20px; 
+    color: #333;
 }
 
 .CardK {
@@ -66,4 +70,57 @@ input {
     border: 1px solid #ddd;
     border-radius: 4px;
     transition: border-color 0.2s;
+}
+
+
+/* .send{
+    color: white;
+    background-color: black;
+} */
+
+.send {
+    color: white;
+    background-color: rgb(39, 37, 37);
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+  
+  .send:hover {
+    background-color: #000000; 
+  }
+
+
+  .add {
+    color: white; 
+    background-color: rgb(34, 139, 34); 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+.add:hover {
+    background-color: #228B22; 
+}
+
+
+.invisible {
+    background-color: #f0f8ff;
+    color: #f0f8ff ;
+}
+.invisible:hover {
+    background-color: #f0f8ff;
+    color: #f0f8ff ;
 }
