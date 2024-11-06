@@ -83,16 +83,16 @@ console.log(payload);
 
   axios.post('/api/wishList' , payload)
   .then(result => {
-      res.sendStatus(201)
       console.log('working POST??')
       setname('');
       setprice('');
       setdescription('');
       setimage('');
+      fetchData();
   })
+
   .catch(error =>{
       console.log('failed the post', error)
-      res.sendStatus(500)
     }
       
   )
@@ -132,6 +132,7 @@ setname('Pierced Owl Earrings')
 setprice(10.99)
 setdescription('Rose gold Plated earrings')
 setimage('https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg')
+
 
 }
 
